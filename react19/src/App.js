@@ -9,7 +9,7 @@ class App extends React.Component {
     employees: [],
     search: "",
   };
-  // funstion to generate api call
+  // function to generate api call
   componentDidMount() {
     API.getRandomEmployee()
       .then((res) => {
@@ -28,6 +28,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <input
+          value={this.state.search}
+          onChange={this.handleInputChange}
+          type="text"
+          placeholder="employee name"
+        />
         <EmployeeTable employeesList={this.state.employees} />
       </div>
     );
