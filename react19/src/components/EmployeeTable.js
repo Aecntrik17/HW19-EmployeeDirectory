@@ -1,21 +1,29 @@
 import React from "react";
+import "./style.css";
 
 function EmployeeTable(props) {
+  const filterList = props.employeesList.filter(
+    (employee) =>
+      employee.name.first.toLowerCase().includes(props.search.toLowerCase()) ||
+      employee.name.last.toLowerCase().includes(props.search.toLowerCase())
+  );
+
   return (
     <table class="table">
       <thead class="thead-light">
         <tr>
-          <th scope="col">image</th>
+          <th scope="col">Image</th>
           <th scope="col">First</th>
           <th scope="col">Last</th>
           <th scope="col">Cell</th>
-          <th scope="col">email</th>
-          <th scope="col">gender</th>
-          <th scope="col">city</th>
+          <th scope="col">Email</th>
+          <th scope="col">City, State</th>
+          <th scope="col">Gender</th>
         </tr>
       </thead>
       <tbody>
-        {props.employeesList.map((employee) => (
+        {/* only search for employees through the filtered list */}
+        {filterList.map((employee) => (
           <tr>
             <td>
               {" "}
@@ -25,10 +33,10 @@ function EmployeeTable(props) {
             <td>{employee.name.last}</td>
             <td>{employee.cell}</td>
             <td>{employee.email}</td>
-            <td>{employee.gender}</td>
             <td>
               {employee.location.city}, {employee.location.state}
             </td>
+            <td>{employee.gender}</td>
           </tr>
         ))}
       </tbody>

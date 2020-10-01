@@ -28,13 +28,19 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <h1>Employee Directory</h1>
         <input
+          className="input"
           value={this.state.search}
           onChange={this.handleInputChange}
           type="text"
-          placeholder="employee name"
+          placeholder="search name"
+          label="Employee Search"
         />
-        <EmployeeTable employeesList={this.state.employees} />
+        <EmployeeTable
+          employeesList={this.state.employees}
+          search={this.state.search}
+        />
       </div>
     );
   }
