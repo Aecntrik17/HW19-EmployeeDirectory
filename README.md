@@ -1,2 +1,27 @@
 # HW19-EmployeeDirectory
-HW19
+
+## Description
+
+An employee directory created using REACT which breaks up the UI components.
+
+## Application
+
+Users can view employees non-sensitive information and also search/filter employees by name. Because we do not have an actual database of employees, an external api is used to fill in the employee data.
+
+## Author
+
+Aaron D. Sims
+
+## Contributing
+
+CSS only please
+
+## Licensing
+
+none required
+
+### Resources:
+
+https://github.com/Aecntrik17/HW19-EmployeeDirectory
+
+Deployed Application: https://aecntrik17.github.io/HW19-EmployeeDirectory/
