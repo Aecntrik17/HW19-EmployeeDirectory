@@ -1,13 +1,16 @@
 import React from "react";
 import "./style.css";
 
+// represents the html table where the employees will be displayed
 function EmployeeTable(props) {
   const filterList = props.employeesList.filter(
     (employee) =>
+    // checking to see if employee name matches with search in any way but with lower case letters
       employee.name.first.toLowerCase().includes(props.search.toLowerCase()) ||
       employee.name.last.toLowerCase().includes(props.search.toLowerCase())
   );
 
+// displaying the html for the page
   return (
     <table class="table">
       <thead class="thead-light">
@@ -44,4 +47,5 @@ function EmployeeTable(props) {
   );
 }
 
+// provides for other files to access the employee table
 export default EmployeeTable;

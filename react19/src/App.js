@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import API from "./utils/API";
 import EmployeeTable from "./components/EmployeeTable";
@@ -9,18 +8,21 @@ class App extends React.Component {
     employees: [],
     search: "",
   };
-  // function to generate api call
+  // will run as soon as the page loads, but will only run once. 
   componentDidMount() {
+    // calling the function with the api route
     API.getRandomEmployee()
+    // sending the response fromt the api call to the state
       .then((res) => {
         console.log(res);
-        // setting state
+        // setting employee state with the response from the api call 
         this.setState({ employees: res.data.results });
       })
       .catch((err) => console.log(err));
   }
-  // taking whatever is in the input box and saving it to state
+  // taking whatever is in the input box and saving it to search state
   handleInputChange = (event) => {
+    // the state will update with each search performed
     this.setState({ search: event.target.value });
   };
 
@@ -45,5 +47,5 @@ class App extends React.Component {
     );
   }
 }
-
+// provides for other files to access the App
 export default App;
